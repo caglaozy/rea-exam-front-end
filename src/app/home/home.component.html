@@ -1,0 +1,58 @@
+
+
+<div class="container-fulid">
+  <nav class="navbar navbar-expand-lg navbar-light "  style="background-color: rgb(217, 217, 217);">
+    <div style="display: flex; align-items: center; gap: 25px; padding-left: 45px;">
+      <a class="navbar-brand" href="#">Exam</a>
+      <p-button (click)="sidebarVisible2 = true" icon="pi pi-bars" styleClass="p-button-rounded p-button-help p-button-outlined"></p-button>
+    </div>
+
+    <div class="d-flex align-items-center " >
+      <div (click)="logOut()" style="padding-right: 45px;">
+        <i class="pi pi-sign-out"></i>
+      </div>
+    
+      <p-sidebar [(visible)]="sidebarVisible2" position="right"> 
+        <div class="col-12 panelink mt-4">
+          <ul>
+            <li [ngClass]="{ 'active': currentContent === 'tweets' ,  'custom-menu-item': true}" (click)="changeContent('tweets')"> Tweets
+              <span></span><span></span><span></span><span></span>
+            </li>
+            <li [ngClass]="{ 'active': currentContent === 'info', 'custom-menu-item': true }" (click)="changeContent('info')"> Kullanıcı Bilgileri
+              <span></span><span></span><span></span><span></span>
+            </li>
+            <li [ngClass]="{ 'active': currentContent === 'users' ,  'custom-menu-item': true}" (click)="changeContent('users')"> Kullanıcılar
+              <span></span><span></span><span></span><span></span>
+            </li>
+        
+         
+          </ul>
+        </div>
+      </p-sidebar>
+    </div>
+  </nav>
+
+
+
+
+      <!-- kişisel bilgiler HOME -->
+      <div  id="tweets" *ngIf="currentContent === 'tweets'" >
+      <app-tweet></app-tweet>
+               </div>
+ 
+      <div  id="dashboard-home" *ngIf="currentContent === 'dashboard-home'" >
+        <app-dashboard-home></app-dashboard-home>
+               </div>
+     
+
+      <div  id="info" *ngIf="currentContent === 'info'" >
+   <app-info></app-info>
+          </div>
+
+
+      <!-- kullanıcılar -->
+      <div  id="users" *ngIf="currentContent === 'users'">
+        <app-user-list></app-user-list>
+      </div>
+
+

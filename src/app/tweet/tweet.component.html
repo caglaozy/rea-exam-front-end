@@ -1,0 +1,116 @@
+<div class="container">
+    <div class="row">
+        <div class="col" *ngFor="let tweet of tweets">
+            <div class="card">
+                <div class="card-body">
+                    <div class="card-body text-center">
+                        <h4 class="shadow-lg p-3 mb-3 bg-body-tertiary rounded"> {{ tweet.tweet_title }}</h4>
+                        <h4 class="shadow-lg p-3 mb-3 bg-body-tertiary rounded"> {{ tweet.tweet_text }}</h4>
+                    </div>
+
+
+                    <div class="modal fade" tabindex="-1" [class.show]="modalOpenAdd" *ngIf="modalOpenAdd">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title">Tweet Ekle</h5>
+                                </div>
+                                <div class="modal-body">
+                                    <form>
+                                        <form>
+                                            <div class="form-group">
+                                                <label for="tweetTitle">Tweet Başlığı</label>
+                                                <input name="tweetTitle" [(ngModel)]="tweetRequest.tweet_title"
+                                                    class="form-control" required>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="tweetText">Tweet Metni</label>
+                                                <textarea name="tweetText" [(ngModel)]="tweetRequest.tweet_text"
+                                                    class="form-control" required></textarea>
+                                            </div>
+                                        </form>
+                                    </form>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-outline-secondary"
+                                        (click)="closeModalAdd()">İptal</button>
+                                              <!--ekle kısmında token oluşuyor. -->
+                                    <button type="button" class="btn btn-outline-primary"
+                                        (click)="onCreate(tweetRequest)">Ekle</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+
+
+
+
+
+
+                    <!--edit modal-->
+                    <div class="modal fade" tabindex="-1" [class.show]="editDialog " *ngIf="tweetsEdit">
+                        <!--CSS'i düzenlemezsem çalışmaz-->
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title"> Tweet Düzenle</h5>
+                                </div>
+                                <div class="modal-body">
+                                    <form ngModelOptions="{standalone: true}">
+                                        <div class="row">
+                                            <div class="col-6 mb-2 mt-3">
+                                                <span class="p-float-label">
+                                                    <input name="tweetTitle" [(ngModel)]="tweetsEdit.tweet_title"
+                                                        pInputText placeholder="Tweet Başlığı" class="w-100"
+                                                        style="border: solid 1px rgba(181, 181, 181, 0.267);" required>
+                                                    <label htmlFor="tweetTitle"> Tweet Başlığı: </label>
+                                                </span>
+                                            </div>
+                                            <div class="col-6 mb-2 mt-3">
+                                                <span class="p-float-label">
+                                                    <input name="tweetText" [(ngModel)]="tweetsEdit.tweet_text"
+                                                        pInputText class="w-100"
+                                                        style="border: solid 1px rgba(181, 181, 181, 0.267);" required>
+                                                    <label htmlFor="tweetText">Tweet Metni:</label>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-outline-secondary" (click)="closeEditModal()"
+                                        style="width: 30%;">İptal</button>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+
+
+
+
+                    <td>
+                        <!-- Delete Butonu -->
+                        <button (click)="openModalAdd()" class="btn btn-outline-warning">Tweet Ekle</button>
+
+
+                    </td>
+
+
+                    <div>
+                        <button (click)="openEditDialog(tweet.id)" class="btn btn-outline-warning" id="buton1">
+                            Düzenle</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

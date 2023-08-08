@@ -1,0 +1,13 @@
+.table-container {
+  display: flex;
+  justify-content: center;
+  padding: 100px;
+}
+
+
+
+/* Tablo stilini korumak istiyorsanız */
+.table-container table {
+  margin-top: 20px; /* İsteğe bağlı boşluk ekleyebilirsiniz */
+
+}

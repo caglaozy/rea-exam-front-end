@@ -1,0 +1,87 @@
+<div class="container" >
+  <div class="d-flex justify-content-center align-items-center" style=" height: 90vh;">
+    <div class="card" *ngIf="currentUser" >
+      <div class="text-center">
+        <img class="avatar" src="assets/img_avatar2.png" alt="Avatar">
+      </div>
+      
+     
+      <div class="card-body text-center" >
+        <h4 class="shadow-lg p-3 mb-3 bg-body-tertiary rounded" *ngIf="isEditing" >Ad: {{ currentUser.userName }}</h4>
+        <h4 class="shadow-lg p-3 mb-3 bg-body-tertiary rounded" *ngIf="isEditing">Soyad: {{ currentUser.surName }}</h4>
+        <h4 class="shadow-lg p-3 mb-3 bg-body-tertiary rounded" *ngIf="isEditing">Email: {{ currentUser.email }}</h4>
+        <h4 class="shadow-lg p-3 mb-3 bg-body-tertiary rounded" *ngIf="isEditing">Adres: {{ currentUser.adress }}</h4>
+        <h4 class="shadow-lg p-3 mb-3 bg-body-tertiary rounded" *ngIf="isEditing">GSM: {{ currentUser.gsm }}</h4>
+      </div>
+
+
+<!--edit modal-->
+      <div class="modal fade" tabindex="-1" [class.show]="editDialog " *ngIf="usersEdit">
+        <!--CSS'i düzenlemezsem çalışmaz-->
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title"> Güncelle</h5>
+            </div>
+            <div class="modal-body">
+              <form ngModelOptions="{standalone: true}">
+                <div class="row">
+                  <div class="col-6 mb-2 mt-3">
+                    <span class="p-float-label">
+                      <input name="userName" [(ngModel)]="usersEdit.userName"  pInputText
+                        placeholder="Adınızı giriniz" class="w-100"
+                        style="border: solid 1px rgba(181, 181, 181, 0.267);" required>
+                      <label htmlFor="userName"> Adı: </label>
+                    </span>
+                  </div>
+                  <div class="col-6 mb-2 mt-3">
+                    <span class="p-float-label">
+                      <input name="surName" [(ngModel)]="usersEdit.surName" pInputText class="w-100"
+                        style="border: solid 1px rgba(181, 181, 181, 0.267);" required>
+                      <label htmlFor="surName">Soyad:</label>
+                    </span>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-6 mb-2 mt-3" style="display: flex;">
+                    <span class="p-float-label">
+                      <input name="email" [(ngModel)]="usersEdit.email" pInputText class="w-100"
+                        style="border: solid 1px rgba(181, 181, 181, 0.267);" required>
+                      <label htmlFor="email">Email:</label>
+                    </span>
+                  </div>
+                  <div class="col-6 mb-2 mt-3" style="display: flex;">
+                    <span class="p-float-label">
+                      <input name="gsm" [(ngModel)]="usersEdit.gsm" pInputText class="w-100"
+                        style="border: solid 1px rgba(181, 181, 181, 0.267);" required>
+                      <label htmlFor="gsm">Telefon numarası:</label>
+                    </span>
+                  </div>
+                </div>
+
+              </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-outline-secondary" (click)="closeEditModal()" style="width: 30%;">İptal</button>
+                <button   class="btn btn-outline-primary" *ngIf="usersEdit" (click)="onUpdate(usersEdit.id, usersEdit)">Güncelle</button>
+              </div>
+
+             
+          </div>
+        </div>
+      </div>
+    
+
+      
+        <button
+        (click)="openEditDialog(currentUser.id)"
+        class="  btn btn-outline-warning"
+        id="buton1"
+      >
+        Düzenle
+      </button>
+  
+    
+    </div>
+  </div>
+</div>

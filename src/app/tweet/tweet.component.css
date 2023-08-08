@@ -1,0 +1,90 @@
+.custom-button {
+    background-color: #4BA47E !important;
+}
+
+.button-space {
+    margin-right: 8px; /* İstediğiniz boşluk miktarını burada ayarlayabilirsiniz */
+  }
+
+  table{
+    width:90%;
+  }
+
+
+.modal {
+  animation: modal-animation 0.5s ease-in-out 0s 1 normal none;
+}
+  .modal.fade.show {
+    display: block;
+  }
+  /*display block görünmesini sağlayacak. none gizlenmesini sağlıyor.*/
+
+.modal-dialog {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20vh;
+  box-shadow: 0 1px 4px -2px #6a64f1;
+  border-radius: 5px;
+}
+
+.modal-header {
+  background-color: #f8f9fa;
+  border-bottom: none;
+}
+
+.modal-body {
+  padding: 20px;
+}
+
+.modal-footer {
+  background-color: #f8f9fa;
+  border-top: none;
+}
+
+.modal-content{
+  border:none;
+}
+
+.header-custom {
+
+  align-content: center;
+  width: 10%;
+  font-size:13px;
+
+}
+.header-custom {
+
+  align-content: center;
+  width: 10%;
+  font-size:13px;
+
+}
+.btn-primary{
+  background-color: #4BA47E !important;
+  border-color: #4BA47E !important;
+}
+
+
+
+/* Modal stilleri */
+.modal-container {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 20px;
+  border: 1px solid #ccc;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 9999;
+}
+
+.modal-container.show {
+  display: block;
+}
+
+.modal-opener {
+  margin-bottom: 20px;
+}

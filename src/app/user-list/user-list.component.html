@@ -1,0 +1,31 @@
+<div class="table-container">
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Id</th>
+      <th scope="col">Email</th>
+      <th scope="col">Name</th>
+      <th scope="col">Surname</th>
+      <th scope="col">Adres</th>
+      <th scope="col">GSM</th>
+      <th scope="col">Actions</th> <!-- Eylemler için yeni sütun ekledik -->
+    </tr>
+  </thead>
+  <tbody *ngFor="let user of users">
+    <tr>
+      <th scope="row">{{user.id}}</th>
+      <td>{{user.email}}</td>
+      <td>{{user.userName}}</td>
+      <td>{{user.surName}}</td>
+      <td>{{user.adress}}</td>
+      <td>{{user.gsm}}</td>
+      <td>
+        <!-- Delete Butonu -->
+        <button class="btn btn-danger btn-sm" (click)="onDelete(user.id)">Delete</button>
+
+
+      </td>
+    </tr>
+  </tbody>
+</table>
+</div>

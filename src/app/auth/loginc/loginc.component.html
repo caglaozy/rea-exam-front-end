@@ -1,0 +1,32 @@
+
+
+
+
+
+
+
+<!-- <div>
+  <input type="email"  [(ngModel)]="loginResponse.Email" />
+  <input type="password"  [(ngModel)]="loginResponse.Password"/>
+  <button type="button" class="btn btn-primary btn-block mb-4" (click)="login()">Sign in</button>
+
+
+</div>
+ -->
+
+ <div class="container" style="background-color: rgb(229, 229, 199); display: flex; justify-content: center; align-items: center; flex-direction: column; height: 100vh;">
+  <div class="col-5">
+    <div class="card p-5">
+      <h3 class="text-center mb-4">Giriş Yapınız</h3>
+      <div class="form-group">
+        <label for="email">E-posta Adresi:</label>
+        <input class="form-control mb-3" type="email" id="email" [(ngModel)]="loginRequest.Email" />
+      </div>
+      <div class="form-group">
+        <label for="password">Şifre:</label>
+        <input class="form-control mb-3" type="password" id="password" [(ngModel)]="loginRequest.Password" />
+      </div>
+      <button type="button" class="btn btn-success btn-block" (click)="login()">Giriş Yap</button>
+    </div>
+  </div>
+</div>
